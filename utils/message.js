@@ -1,0 +1,9 @@
+exports.NOT_REGISTERED_USER = 'User not registered!';
+exports.EMPTY_EMAIL_ERROR = 'Email Id cannot be empty!';
+exports.PASSWORD_REQUIRED_ERROR = 'Password cannot be empty!';
+exports.EMPTY_MOBILE_ERROR = 'Mobile number cannot be empty!';
+exports.REGISTERED_EMAIL_ERROR = 'Email Id already registered!';
+exports.LAST_NAME_REQUIRED_ERROR = 'Last name cannot be empty!';
+exports.FIRST_NAME_REQUIRED_ERROR = 'First name cannot be empty!';
+exports.REGISTERED_MOBILE_ERROR = 'Mobile number already registered!';
+exports.INCORRECT_USERNAME_PASSWORD_ERROR = 'Username or password is incorrect!';

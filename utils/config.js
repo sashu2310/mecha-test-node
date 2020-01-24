@@ -1,0 +1,1 @@
+exports.authTokenExpirationTime = 3600;
