@@ -2,7 +2,7 @@ const _ = require('lodash');
 const bcrypt = require('bcrypt');
 const utils = require('../utils/index');
 const message = require('../utils/message');
-const userModel = require('../models/user');
+const userModel = require('../models/user.schema');
 
 save = async (data) => {
     console.log('Saving to DB-');
@@ -27,6 +27,7 @@ save = async (data) => {
 login = async (cred) => {
     return new Promise(async (resolve, reject) => {
         const userName = cred['username'];
+        console.log(userModel);
         let user = await userModel.findByCredentials(userName);
         console.log('got this user:: ', user);
         if (!_.isNull(user)) {
@@ -56,8 +57,15 @@ login = async (cred) => {
 ifUserExists = async (userName) => {
     const user = await userModel.findByCredentials(userName);
     return user;
+    // return null;
+};
+
+getUsers = async () => {
+    const users = await userModel.fetchUsers();
+    return users;
 };
 
 exports.save = save;
 exports.login = login;
+exports.getUsers = getUsers;
 exports.ifUserExists = ifUserExists;

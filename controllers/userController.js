@@ -30,6 +30,8 @@ exports.login = async (req, res) => {
     }
 };
 
-exports.verify = async (req, res) => {
-    return utils.success(res, 'User verified');
+exports.getPeers = async (req, res) => {
+    const allUsers = await userService.getUsers();
+    return utils.success(res, allUsers);
 };
+
