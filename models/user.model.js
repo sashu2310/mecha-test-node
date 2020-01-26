@@ -5,9 +5,11 @@ const validator = require('validator');
 const utils = require('../utils/index');
 const message = require('../utils/message');
 
+const schema = mongoose.Schema;
+
 mongoose.set('useCreateIndex', true);
 
-const userSchema = mongoose.Schema({
+const usersSchema = new schema({
     createdAt: Date,
     updatedAt: Date,
     password: {
@@ -56,9 +58,9 @@ const userSchema = mongoose.Schema({
     }
 });
 
-userSchema.index({ mobileNumber: 1, emailId: 1 });
+usersSchema.index({ mobileNumber: 1, emailId: 1 });
 
-userSchema.pre('save', function (next) {
+usersSchema.pre('save', function (next) {
     const user = this;
     user.createdAt = new Date().toISOString();
     if (user.isModified('password')) {
@@ -73,7 +75,7 @@ userSchema.pre('save', function (next) {
     }
 });
 
-userSchema.methods.toJSON = function () {
+usersSchema.methods.toJSON = function () {
     // console.log('Entering toJSON()');
     const user = this;
     const userObject = user.toObject();
@@ -81,7 +83,7 @@ userSchema.methods.toJSON = function () {
     return userObject;
 };
 
-userSchema.statics.findByCredentials = async function (userName) {
+usersSchema.statics.findByCredentials = async function (userName) {
     console.log(`Entering findByCredentials() with userName: ${userName}`);
     if (_.isUndefined(userName)) {
         console.log('yes undefined');
@@ -106,4 +108,8 @@ userSchema.statics.findByCredentials = async function (userName) {
     return user;
 };
 
-module.exports = mongoose.model('user', userSchema);
+exports.msg = 'msf';
+const userModel =  mongoose.model('user',usersSchema);
+// exports.userModel = userModel;
+// module.exports = mongoose.model('user', userSchema);
+module.exports = userModel;
