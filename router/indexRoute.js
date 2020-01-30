@@ -13,7 +13,7 @@ router.route('/peers').get(userController.getPeers);
 router.route('/login/username/:username/password/:password').get(userController.login);
 
 // chain controller
-router.route('/blockchain').post(passport.authenticate('jwt', { session: false }), blockController.addBlock);
-router.route('/blockchain/:userId').get(passport.authenticate('jwt', { session: false }), blockController.getChain);
+router.route('/blockchain').post(blockController.addBlock);
+router.route('/blockchain/:userId').get(blockController.getChain);
 
 module.exports = router;

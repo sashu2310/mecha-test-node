@@ -2,7 +2,8 @@ const _ = require('lodash');
 const bcrypt = require('bcrypt');
 const utils = require('../utils/index');
 const message = require('../utils/message');
-const userModel = require('../models/user.schema')
+const userModel = require('../models/user.schema');
+
 save = async (data) => {
     console.log('Saving to DB-');
     return new Promise(async (resolve, reject) => {
@@ -51,15 +52,6 @@ login = async (cred) => {
         return ({ success: false, error: error });
     });
 
-};
-
-findUser = async (userName) => {
-    console.log(userModel);
-    // return new Promise((resolve, reject) => {
-    //     userModel.findOne({ mobileNumber: userName }, (error, res) => {
-    //         console.log(res);
-    //     });
-    // });
 };
 
 ifUserExists = async (userName) => {

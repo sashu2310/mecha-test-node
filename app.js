@@ -16,7 +16,7 @@ const app = express();
 const routes = require('./router/indexRoute');
 
 // port number
-const port = 4200;
+const port = 3000;
 //database url
 const dbUrl = process.env.dbUrl;
 //connecting database
