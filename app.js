@@ -16,7 +16,7 @@ const app = express();
 const routes = require('./router/indexRoute');
 
 // port number
-const port = process.env.port;
+const port = process.env.port||8080;
 //database url
 const dbUrl = process.env.dbUrl;
 //connecting database
@@ -48,14 +48,14 @@ app.get('/', (req, res, next) => {
   console.error(`${req.ip} tried to reach ${req.originalUrl}`);
   const err = new Error(`${req.ip} tried to reach ${req.originalUrl}`);
   err.statusCode = 404;
-  next(err);
-  res.send('Welcome to Mechademy-Test');
+  // next(err);
+  return res.send('Welcome to Mechademy-Test');
 });
 
 // routing
 app.use('/test',cors(), routes);
 
 // listening
-// app.listen(port, () => {
-//   console.log(`server running at ${port}`);
-// });
+app.listen(port, () => {
+  console.log(`server running at ${port}`);
+});
