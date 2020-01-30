@@ -1,5 +1,6 @@
 // defining express pre-requisities
 const cors = require('cors');
+const config = require('./utils/config');
 const helmet = require('helmet');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -18,7 +19,7 @@ const routes = require('./router/indexRoute');
 // port number
 const port = process.env.port || 5000;
 //database url
-const dbUrl = process.env.dbUrl;
+const dbUrl = config.dbUrl;
 //connecting database
 mongoose.connect(dbUrl, { useUnifiedTopology: true, useNewUrlParser: true });
 //upon connection

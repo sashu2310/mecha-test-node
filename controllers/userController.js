@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
     const cred = _.pick(req.params, ['username', 'password']);
     const logUser = await userService.login(cred);
     if (logUser.success) {
-        const token = jwt.sign({ data: logUser.data }, process.env.secretkey, { expiresIn: config.authTokenExpirationTime });
+        const token = jwt.sign({ data: logUser.data }, config.secretkey, { expiresIn: config.authTokenExpirationTime });
         const data = logUser.data;
         res.status(200).json({ success: true, data, token: `${token}` });
     }
