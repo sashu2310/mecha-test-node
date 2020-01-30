@@ -51,4 +51,4 @@ chainSchema.statics.getChain = async function (id) {
     return chain;
 };
 
-module.exports = mongoose.model('chain', chainSchema);
+module.exports = mongoose.model('sandeep_chain', chainSchema);

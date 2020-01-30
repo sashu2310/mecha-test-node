@@ -56,6 +56,6 @@ app.get('/', (req, res, next) => {
 app.use('/test',cors(), routes);
 
 // listening
-app.listen(port, () => {
-  console.log(`server running at ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`server running at ${port}`);
+// });
