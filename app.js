@@ -1,5 +1,6 @@
 // defining express pre-requisities
 const cors = require('cors');
+const authorize = require('./middlewares/authorize');
 const config = require('./utils/config');
 const helmet = require('helmet');
 const express = require('express');
@@ -27,7 +28,7 @@ mongoose.connection.on('connected', () => {
   console.log('connected');
 });
 
-mongoose.connection.on('error',(error)=>{
+mongoose.connection.on('error', (error) => {
   console.log(error);
 });
 
@@ -54,7 +55,7 @@ app.get('/', (req, res, next) => {
 });
 
 // routing
-app.use('/test',cors(), routes);
+app.use('/test', authorize, cors(), routes);
 
 // listening
 app.listen(port, () => {
