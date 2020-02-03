@@ -18,7 +18,7 @@ npm start
 
 Signup: POST https://mighty-thicket-25243.herokuapp.com/test/signup
 
-Login: GET http://localhost:5000/test/login/username/{username}/password/{password}
+Login: GET https://mighty-thicket-25243.herokuapp.com/test/login/username/{username}/password/{password}
 
 Add blocks: POST https://mighty-thicket-25243.herokuapp.com/test/blockchain
 
